@@ -1,0 +1,56 @@
+<template>
+  <div class="modal-wrap" :class="{showed: show}">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" t="1509440292430" class="icon" style="fill: white" viewBox="0 0 1024 1024" version="1.1" p-id="1644" width="50" height="50">
+      <path d="M514.171456 957.933305c-246.989277 0-447.212438-200.228277-447.212438-447.212438 0-246.99337 200.223161-447.221648 447.212438-447.221648 246.99337 0 447.216531 200.228277 447.216531 447.221648C961.387987 757.706051 761.164826 957.933305 514.171456 957.933305zM565.775764 300.010865c0-28.501124-23.103184-51.604308-51.604308-51.604308-28.497031 0-51.595099 23.103184-51.595099 51.604308l0 240.808508c0 28.497031 23.099091 51.604308 51.595099 51.604308 28.501124 0 51.604308-23.107277 51.604308-51.604308L565.775764 300.010865zM514.171456 661.223626c-28.497031 0-51.595099 23.103184-51.595099 51.604308 0 28.497031 23.099091 51.600215 51.595099 51.600215 28.501124 0 51.604308-23.103184 51.604308-51.600215C565.775764 684.32681 542.67258 661.223626 514.171456 661.223626z" p-id="1645"/>
+    </svg>
+    <div v-html="msg"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      msg: 'something error!',
+      show: false,
+    }
+  },
+  methods: {
+    getMessage (info, duration = 2000) {
+      console.log(info)
+      this.show = true;
+      this.msg = info;
+      let self = this;
+      setTimeout(function() {
+        self.show = false;
+      }, duration);
+    }
+  }
+}
+</script>
+
+<style lang="less">
+.modal-wrap {
+  position: absolute;
+  width: 60vw;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-150%);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  font-size: 6vw;
+  padding: 2vh;
+  color: #fff;
+  z-index: 10;
+  & > div {
+    line-height: 1.5
+  }
+  &.showed {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+    transition: all 0.5s ease-in;
+  }
+}
+
+</style>
