@@ -72,8 +72,7 @@ html {
 }
 .bottom {
   flex: 1;
-  background-image: url("assets/021.jpg");
-  background-size: cover;
+  margin-top: 4vh;
 }
 
 .fade-enter-active,
@@ -100,6 +99,12 @@ html {
 .slide-left-leave-active {
   transform: translateX(10%);
   opacity: 0;
+}
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration:none;
+  color:#333;
+  out-line: none;
 }
 
 // .slide-left-leave-active, .slide-right-enter-active {

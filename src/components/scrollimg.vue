@@ -28,10 +28,6 @@ export default {
           src: require('../assets/banner2.jpg'),
           link: 'http://wotv.17wo.cn',
         },
-        {
-          src: require('../assets/banner3.jpg'),
-          link: 'http://wallet.ishwap.com/yczb.html',
-        },
 
       ],
     }
@@ -106,8 +102,8 @@ export default {
 }
 
 .dot {
+  margin-top: 1vh;
   position: absolute;
-  bottom: 2.5vw;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
@@ -116,10 +112,10 @@ export default {
     width: 2vw;
     height: 2vw;
     margin: 1vw;
-    background-color: #fb3083;
     border-radius: 50%;
+    border: 1px solid #f08f3a;
     &.active {
-      background-color: #fab200;
+      background-color: #f08f3a;
     }
   }
 }
