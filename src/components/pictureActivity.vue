@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <div class="" v-for="(img,index) in imgArray">
-                <img class="img-style" :class="{'img-left' : index == 1}" :src="img.src">
+                <a :href="img.link"><img class="img-style" :class="{'img-left' : index == 1}" :src="img.src"></a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
           },
           {
             src: require('../assets/activity-pic1.png'),
-            link: 'http://changshi.wo.cn',
+            link: 'http://wotv.17wo.cn',
           }
         ]
       }

@@ -6,9 +6,9 @@
             <div class="title-container">
                 <div class="titles">
                     <div class="choose-type">选择类型</div>
-                    <div>爆款热推</div>
-                    <div class="watch-movie">超值定向流量</div>
-                    <div class="watch-movie">免流看大片</div>
+                    <div @click="chooseRecommend(0)" :class="{choose : chooseFlag == 0}">爆款热推</div>
+                    <div class="data-usage" @click="chooseRecommend(2)" :class="{choose : chooseFlag == 2}">超值定向流量</div>
+                    <div class="watch-movie" @click="chooseRecommend(1)" :class="{choose : chooseFlag == 1}">免流看大片</div>
                 </div>
             </div>
         </div>
@@ -45,8 +45,14 @@
                     font-weight: 900;
                     font-size: 1.4rem;
                 }
+                .choose {
+                    color: red;
+                }
                 .watch-movie {
                     width:19vw;
+                }
+                .data-usage {
+                    width:20vw;
                 }
                 div {
                     width: 17vw;
@@ -62,10 +68,14 @@
   export default {
     data () {
       return {
-        msg: 'hello vue'
+        chooseFlag: "-1"
       }
     },
-    methods: {}
-
+    methods: {
+      chooseRecommend : function (param) {
+        this.$root.Bus.$emit('changeRecommend',param);
+        this.chooseFlag = param;
+      }
+    }
   }
 </script>

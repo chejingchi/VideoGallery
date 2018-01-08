@@ -10,6 +10,12 @@
     <div class="dot">
       <div v-for="(v, i) in imgArray " :key="i" :class="{active: mark === i}"></div>
     </div>
+    <div class="triangle">
+      <div class="triangle-left" @click="onSwipeRight">
+      </div>
+      <div class="triangle-right" @click="onSwipeLeft">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,7 +32,11 @@ export default {
         },
         {
           src: require('../assets/banner2.jpg'),
-          link: 'http://wotv.17wo.cn',
+          link: 'http://wotvnews.17wo.cn/wovideo/videoMap/init?set_id1=h5-1',
+        },
+        {
+          src: require('../assets/banner2.jpg'),
+          link: 'http://t.10155.com/0So',
         },
 
       ],
@@ -40,24 +50,29 @@ export default {
       }
     },
     play() {
-      var timer = setInterval(this.autoPlay, 8000);
+      var timer = setInterval(this.autoPlay, 500000000);
     },
     change(i) {
       this.mark = i;
     },
     onSwipeLeft() {
+      console.log(this.mark);
       if (this.mark === this.imgArray.length-1) {
         this.mark = 0;
       } else {
         this.mark++;
       }
+      console.log(this.mark);
     },
     onSwipeRight() {
+      console.log(this.mark);
+
       if (this.mark === 0) {
         this.mark = this.imgArray.length-1;
       } else {
         this.mark--;
       }
+      console.log(this.mark);
     }
   },
   created() {
@@ -119,4 +134,30 @@ export default {
     }
   }
 }
+  .triangle {
+    .triangle-left {
+      border-right: 4px solid;
+      border-bottom: 4px solid;
+      width: 3.2vh;
+      height: 3.2vh;
+      transform: rotate(135deg);
+      color: #edfdff;
+      position: absolute;
+      margin-top: -15vh;
+      z-index: 4;
+      margin-left: 3vw;
+    }
+    .triangle-right {
+      border-right: 4px solid;
+      border-bottom: 4px solid;
+      width: 3.2vh;
+      height: 3.2vh;
+      transform: rotate(-45deg);
+      color: #edfdff;
+      position: absolute;
+      margin-top: -15vh;
+      z-index: 4;
+      margin-left: 90vw;
+    }
+  }
 </style>

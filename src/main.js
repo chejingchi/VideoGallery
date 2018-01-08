@@ -1,15 +1,13 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import router from './router/'
-import VueTouch from 'vue-touch'
+import Vue from 'vue';
+import App from './App';
+import router from './router/';
+import VueTouch from 'vue-touch';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.use(VueTouch, {name: 'v-touch'})
-
-
+Vue.use(VueTouch, {name: 'v-touch'});
 
 // axios.interceptors.request.use(function (config) {    // 这里的config包含每次请求的内容
 //     // config.headers.Authorization = `WSSE realm="SDP", profile="UsernameToken", type="Appkey"`;
@@ -25,6 +23,9 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
-})
+  components: { App },
+  data: {
+    Bus: new Vue()
+  }
+});
 
