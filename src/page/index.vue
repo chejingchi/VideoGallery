@@ -6,7 +6,6 @@
       <hotActivity></hotActivity>
       <secondRecommend></secondRecommend>
     </div>
-    <bottom></bottom>
   </div>
 </template>
 
@@ -17,7 +16,6 @@ import recommend from '../components/recommend'
 import topLayer from '../components/topLayer'
 import hotActivity from '../components/hotActivity'
 import secondRecommend from '../components/secondRecommend'
-import bottom from "../components/bottom"
 
 export default {
   name: 'index',
@@ -27,7 +25,6 @@ export default {
     topLayer,
     hotActivity,
     secondRecommend,
-    bottom
   }
 
 }

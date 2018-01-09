@@ -50,7 +50,7 @@ export default {
       }
     },
     play() {
-      var timer = setInterval(this.autoPlay, 500000000);
+      var timer = setInterval(this.autoPlay, 5000);
     },
     change(i) {
       this.mark = i;
