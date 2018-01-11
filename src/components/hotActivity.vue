@@ -5,8 +5,10 @@
                 <div class="hot-title">
                     <img src="../assets/hotActivity.png">
                 </div>
-                <div class="font-style" v-for="title in titleArr">
-                    <a :href="title.src">{{title.name}}</a>
+                <div class="font-style" id="wrapper">
+                    <div class="inner">
+                        <a :href="title.src">{{title.name}}</a>
+                    </div>
                 </div>
                 <div class="facing-right">
                     <div class="triangle-facing-right">
@@ -44,6 +46,17 @@
                 line-height: 5vh;
                 margin-left: 2vw;
                 font-size: 1.8vh;
+                width: 70vw;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                .inner {
+                    width: 1000px;
+                    overflow: hidden;
+                    a {
+                        display: inline-block;
+                    }
+                }
             }
             .facing-right {
                 display: flex;
@@ -66,7 +79,7 @@
         .divide {
             border-top: 1px solid #c8c9ca;
         }
-        .margin-top-1{
+        .margin-top-1 {
             margin-top: 1vh;
         }
         .divide-with-recommend {
@@ -85,22 +98,41 @@
   export default {
     data () {
       return {
-        titleArr: [
-          {
-            name: "免流量",
-            src: ""
-          },
-          {
-            name: "看视频",
-            src: ""
-          }
-        ]
+        title: {
+          name: "免流量啊大法师打发斯蒂芬撒旦法撒旦法撒旦法撒旦法是的撒的飞洒",
+          src: "http://changshi.wo.cn"
+        },
+        wrapper: {},
+        inner: {},
+        p_w: 0,
+        wrapper_w: 0,
+
       }
     },
     components: {
       pictureActivity,
     },
-    methods: {},
+    methods: {
+      leftScroll: function (scrollObj) {
+        let tmp = scrollObj.scrollLeft++;
+        console.log("scrollObj.scrollLeft :" + scrollObj.scrollLeft);
+        console.log("tmp :" + tmp);
+        if (scrollObj.scrollLeft == tmp) {
+          scrollObj.innerHTML += scrollObj.innerHTML;
+        }
+        if (scrollObj.scrollLeft >= scrollObj.firstChild.firstChild.offsetWidth) {
+          scrollObj.scrollLeft = 0;
+        }
+
+      },
+    },
+    mounted: function () {
+      let scrollObj = document.getElementById("wrapper");
+      let that = this;
+      setInterval(() => {
+        that.leftScroll(scrollObj);
+      }, 50);
+    }
 
 
   }

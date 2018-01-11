@@ -1,16 +1,19 @@
 <template>
     <div>
-        <div>loading...</div>
+        <div class="loading-style">{{msg}}</div>
     </div>
 </template>
-<style>
-
+<style lang="less" scoped>
+    .loading-style {
+        font-size: 2vh;
+        font-weight: bold;
+    }
 </style>
 <script>
   export default {
     data () {
       return {
-        msg: 'hello vue'
+        msg: '加载中。。。'
       }
     },
   }
