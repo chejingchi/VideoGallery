@@ -115,8 +115,8 @@
     methods: {
       leftScroll: function (scrollObj) {
         let tmp = scrollObj.scrollLeft++;
-        console.log("scrollObj.scrollLeft :" + scrollObj.scrollLeft);
-        console.log("tmp :" + tmp);
+//        console.log("scrollObj.scrollLeft :" + scrollObj.scrollLeft);
+//        console.log("tmp :" + tmp);
         if (scrollObj.scrollLeft == tmp) {
           scrollObj.innerHTML += scrollObj.innerHTML;
         }

@@ -23,9 +23,11 @@
                         <span>{{recommend.object}}</span>
                     </div>
                 </div>
-                <div class="understand-details-btn">
-                    <img src="../assets/understand-details.png">
-                </div>
+                <router-link tag="a" :to="{name: 'detail',query:{id:recommend.productId}}">
+                    <div class="understand-details-btn">
+                        <img src="../assets/understand-details.png">
+                    </div>
+                </router-link>
             </div>
             <div class="circle-divide">
             </div>
@@ -72,116 +74,15 @@
 <script>
   import bottom from "../components/bottom"
   import loading from "../components/loading"
+  import newProduct from "../util/newProduct"
 
   export default {
     data () {
       return {
         recommendArr: [],
-        boomArr: [
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "无限畅视",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "英超观赛券",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "Bestv App包天",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "Bestv App包月",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "攀登读书会课程",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "小顾聊绘画课程",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "简七理财课程",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-
-        ],
-        freeDataArr: [
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "沃视频电视栏目",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "沃视频爱看栏目",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          }
-        ],
-        pointDataArr: [
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "WO+视频PPTV定向流量包月",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "WO+视频腾讯定向流量包月",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "WO+视频优酷定向流量包月",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "WO+视频乐视定向流量包月",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          },
-          {
-            src: require("../assets/banner1.jpg"),
-            subject: "WO+视频芒果TV定向流量包月",
-            time: "2017年12月1日-2018年12月31日",
-            range: "全国",
-            object: "全国"
-          }
-        ],
+        boomArr: newProduct.boomArr,
+        freeDataArr: newProduct.freeDataArr,
+        pointDataArr: newProduct.pointDataArr,
         retArr: [],
         bottomFlag: false,
         recommendIndex: 0,
